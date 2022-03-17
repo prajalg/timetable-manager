@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TimeTable Manager</string>
+    <string name="email_id">Email id</string>
+    <string name="pswd">Password</string>
+    <string name="forg_pswd_login">Forgot password?</string>
+    <string name="logout">Logout</string>
+    <string name="notification">Notifications</string>
+    <string name="forg_pass">FORGOT PASSWORD</string>
+    <string name="forg_pass_btn">SEND LINK</string>
+    <string name="forg_pass_txt">*A link to reset your password will be sent the entered email id on clicking the <b>\'SEND LINK\'</b> button.</string>
 </resources>

@@ -12,10 +12,13 @@
         <entry key="app/src/main/res/font/cantora_one.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/font/capriola.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/font/syne_tactile.xml" value="0.12447916666666667" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.28466491699218754" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2517333984374998" />
+        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.32867431640625006" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.4056320190429688" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.3111679077148438" />
         <entry key="app/src/main/res/layout/register.xml" value="0.32701161702473963" />
+        <entry key="app/src/main/res/menu-v26/app_menu.xml" value="0.2995844523111979" />
+        <entry key="app/src/main/res/menu/app_menu.xml" value="0.33746948242187497" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2" />
       </map>
