@@ -41,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
         login_here.setOnClickListener(view -> {
             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+            finish();
         });
     }
 
@@ -61,6 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if(task.isSuccessful()){
                         Toast.makeText(RegisterActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                        finish();
                     }
                     else{
                         Toast.makeText(RegisterActivity.this, "Registration Error : "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();

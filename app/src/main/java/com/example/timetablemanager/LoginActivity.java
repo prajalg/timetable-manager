@@ -43,9 +43,13 @@ public class LoginActivity extends AppCompatActivity {
         });
         register_now.setOnClickListener(view -> {
             startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+            finish();
+
         });
         forgot_pass.setOnClickListener(view -> {
             startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
+            finish();
+
         });
     }
 
@@ -66,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                     if(task.isSuccessful()){
                         Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                    finish();
                     }
                     else{
                         Toast.makeText(LoginActivity.this, "Login error : "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();

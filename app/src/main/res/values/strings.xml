@@ -5,7 +5,14 @@
     <string name="forg_pswd_login">Forgot password?</string>
     <string name="logout">Logout</string>
     <string name="notification">Notifications</string>
+    <string name="profile">Profile</string>
     <string name="forg_pass">FORGOT PASSWORD</string>
     <string name="forg_pass_btn">SEND LINK</string>
     <string name="forg_pass_txt">*A link to reset your password will be sent the entered email id on clicking the <b>\'SEND LINK\'</b> button.</string>
+    <string name="tasks"><b>Tasks</b></string>
+    <string name="postponed"><b>Postponed</b></string>
+    <string name="status"><b>Status</b></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

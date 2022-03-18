@@ -14,11 +14,15 @@
         <entry key="app/src/main/res/font/syne_tactile.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.32867431640625006" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.4056320190429688" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.11539154052734375" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.3111679077148438" />
+        <entry key="app/src/main/res/layout/fragment_postponed.xml" value="0.1791363830696879" />
+        <entry key="app/src/main/res/layout/fragment_status.xml" value="0.1791363830696879" />
+        <entry key="app/src/main/res/layout/fragment_tasks.xml" value="0.2625897522103129" />
         <entry key="app/src/main/res/layout/register.xml" value="0.32701161702473963" />
-        <entry key="app/src/main/res/menu-v26/app_menu.xml" value="0.2995844523111979" />
+        <entry key="app/src/main/res/menu-v26/app_menu.xml" value="0.2187347412109375" />
         <entry key="app/src/main/res/menu/app_menu.xml" value="0.33746948242187497" />
+        <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.2693069458007813" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2" />
       </map>
@@ -29,5 +33,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2627105712890625" />
+      </ProjectState>
+    </option>
   </component>
 </project>
