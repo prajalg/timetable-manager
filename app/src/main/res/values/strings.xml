@@ -3,6 +3,13 @@
     <string name="email_id">Email id</string>
     <string name="pswd">Password</string>
     <string name="forg_pswd_login">Forgot password?</string>
+    <string name="task_title">Title</string>
+    <string name="add_task">ADD A TASK</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="task_des">Description</string>
+    <string name="task_time">Select Time</string>
+    <string name="add_alarm">Add Alarm</string>
     <string name="logout">Logout</string>
     <string name="notification">Notifications</string>
     <string name="profile">Profile</string>
@@ -12,6 +19,9 @@
     <string name="tasks"><b>Tasks</b></string>
     <string name="postponed"><b>Postponed</b></string>
     <string name="status"><b>Status</b></string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="repeat">Repeat</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

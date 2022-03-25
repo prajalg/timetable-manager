@@ -22,8 +22,4 @@
         android:id="@+id/logout"
         app:showAsAction="ifRoom">
     </item>
-
-
-
-
 </menu>

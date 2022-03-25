@@ -3,10 +3,14 @@ package com.example.timetablemanager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,7 +18,6 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class TasksFragment extends Fragment {
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -23,6 +26,9 @@ public class TasksFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    RecyclerView recyclerView;
+    ArrayList<TaskModel> arrTasks = new ArrayList<>();
 
     public TasksFragment() {
         // Required empty public constructor
@@ -59,6 +65,26 @@ public class TasksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tasks, container, false);
+        View v = inflater.inflate(R.layout.fragment_tasks, container, false);
+
+        recyclerView = v.findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());   //note that we cannot use this as context.
+        recyclerView.setLayoutManager(layoutManager);
+
+        arrTasks.add(new TaskModel("Mechanics", "Do questions on virtual work principle", "07:30 AM"));
+        arrTasks.add(new TaskModel("Physics Lab class", "Join the lab class on zoom", "10:00 AM"));
+        arrTasks.add(new TaskModel("Electronics", "Practice diode, op-amp numerical questions", "12:30 PM"));
+        arrTasks.add(new TaskModel("Mathematics", "Do tutorial sheet 3", "02:00 PM"));
+        arrTasks.add(new TaskModel("Electronics class", "Join the class on zoom", "03:00 PM"));
+        arrTasks.add(new TaskModel("Mathematics class", "Join the class on zoom", "04:00 PM"));
+        arrTasks.add(new TaskModel("Economics & Finance class", "Join the class on zoom", "05:00 PM"));
+        arrTasks.add(new TaskModel("Physics lab report file", "Write experiment 5", "07:30 PM"));
+        arrTasks.add(new TaskModel("Mechanics Tutorial sheet", "Do tutorial sheet on Module 7", "09:30 AM"));
+
+        // making object of RecyclerTaskAdapter class:
+
+        RecyclerTaskAdapter adapter = new RecyclerTaskAdapter(arrTasks);
+        recyclerView.setAdapter(adapter);
+        return v;
     }
 }
