@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TimeTableManager">
         <activity
+            android:name=".EditNameDialogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChangePswdActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddTaskActivity"
             android:exported="false" />
         <activity
@@ -25,12 +31,15 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ForgotPasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProfileActivity"
             android:exported="true"></activity>
 
         <meta-data

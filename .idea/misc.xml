@@ -13,15 +13,19 @@
         <entry key="app/src/main/res/font/cantora_one.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/font/capriola.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/font/syne_tactile.xml" value="0.12447916666666667" />
-        <entry key="app/src/main/res/layout/activity_add_task.xml" value="0.2944447313618456" />
+        <entry key="app/src/main/res/layout/activity_add_task.xml" value="0.311151123046875" />
+        <entry key="app/src/main/res/layout/activity_change_pswd.xml" value="0.3400145701538452" />
+        <entry key="app/src/main/res/layout/activity_edit_email_dialog.xml" value="0.5093215159546264" />
+        <entry key="app/src/main/res/layout/activity_edit_profile_dialog.xml" value="0.3660537719726562" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.32867431640625006" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19170984455958548" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14617462158203126" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.3111679077148438" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24951782226562502" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.30009002685546876" />
         <entry key="app/src/main/res/layout/dialog_layout.xml" value="0.3047069345482092" />
         <entry key="app/src/main/res/layout/fragment_postponed.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/fragment_status.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/fragment_tasks.xml" value="0.2625897522103129" />
+        <entry key="app/src/main/res/layout/profile_section.xml" value="0.31745904010275133" />
         <entry key="app/src/main/res/layout/register.xml" value="0.32701161702473963" />
         <entry key="app/src/main/res/layout/row.xml" value="0.3114754098360656" />
         <entry key="app/src/main/res/layout/task_row.xml" value="0.33528747558593747" />

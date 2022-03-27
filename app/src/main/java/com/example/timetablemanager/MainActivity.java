@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -109,12 +110,16 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             mAuth.signOut();
+                            Toast.makeText(MainActivity.this, "Logged-out", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(MainActivity.this, LoginActivity.class));
                         }
                     });
             builder.setNegativeButton("No",null);
             AlertDialog alert = builder.create();
             alert.show();
+        }
+        else if(item.getItemId()==R.id.profile){
+            startActivity(new Intent(MainActivity.this, ProfileActivity.class));
         }
             return true;
     }
