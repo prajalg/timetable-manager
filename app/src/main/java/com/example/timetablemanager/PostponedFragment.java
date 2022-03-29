@@ -3,10 +3,14 @@ package com.example.timetablemanager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +27,9 @@ public class PostponedFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    RecyclerView recyclerViewPostponed;
+    ArrayList<TaskModel> arrPostponed = new ArrayList<>();
 
     public PostponedFragment() {
         // Required empty public constructor
@@ -59,6 +66,24 @@ public class PostponedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_postponed, container, false);
+        View v = inflater.inflate(R.layout.fragment_postponed, container, false);
+        recyclerViewPostponed = v.findViewById(R.id.recyclerViewPostponed);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerViewPostponed.setLayoutManager(layoutManager);
+
+
+        arrPostponed.add(new TaskModel("A", "xyz","02:00 PM"));
+        arrPostponed.add(new TaskModel("B", "xyz1","05:00 PM"));
+        arrPostponed.add(new TaskModel("C", "xyz2","07:00 PM"));
+        arrPostponed.add(new TaskModel("D", "xyz3","09:00 AM"));
+        arrPostponed.add(new TaskModel("E", "xyz4","12:00 PM"));
+        arrPostponed.add(new TaskModel("F", "xyz5","03:00 PM"));
+        arrPostponed.add(new TaskModel("G", "xyz6","10:00 AM"));
+        arrPostponed.add(new TaskModel("H", "xyz7","08:00 PM"));
+
+        RecyclerPostponedAdapter adapter = new RecyclerPostponedAdapter(arrPostponed);
+        recyclerViewPostponed.setAdapter(adapter);
+        return v;
     }
 }

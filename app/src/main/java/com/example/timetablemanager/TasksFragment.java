@@ -27,7 +27,7 @@ public class TasksFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerViewTasks;
     ArrayList<TaskModel> arrTasks = new ArrayList<>();
 
     public TasksFragment() {
@@ -67,9 +67,9 @@ public class TasksFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tasks, container, false);
 
-        recyclerView = v.findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());   //note that we cannot use this as context.
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerViewTasks = v.findViewById(R.id.recyclerViewTasks);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());   //note that we cannot use 'this' as context.
+        recyclerViewTasks.setLayoutManager(layoutManager);
 
         arrTasks.add(new TaskModel("Mechanics", "Do questions on virtual work principle", "07:30 AM"));
         arrTasks.add(new TaskModel("Physics Lab class", "Join the lab class on zoom", "10:00 AM"));
@@ -84,7 +84,7 @@ public class TasksFragment extends Fragment {
         // making object of RecyclerTaskAdapter class:
 
         RecyclerTaskAdapter adapter = new RecyclerTaskAdapter(arrTasks);
-        recyclerView.setAdapter(adapter);
+        recyclerViewTasks.setAdapter(adapter);
         return v;
     }
 }

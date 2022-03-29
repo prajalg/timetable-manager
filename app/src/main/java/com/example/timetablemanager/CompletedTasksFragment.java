@@ -3,17 +3,21 @@ package com.example.timetablemanager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link StatusFragment#newInstance} factory method to
+ * Use the {@link CompletedTasksFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class StatusFragment extends Fragment {
+public class CompletedTasksFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +28,10 @@ public class StatusFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public StatusFragment() {
+    RecyclerView recyclerViewCompleted;
+    ArrayList<TaskModel> arrCompleted = new ArrayList<>();
+
+    public CompletedTasksFragment() {
         // Required empty public constructor
     }
 
@@ -37,8 +44,8 @@ public class StatusFragment extends Fragment {
      * @return A new instance of fragment StatusFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static StatusFragment newInstance(String param1, String param2) {
-        StatusFragment fragment = new StatusFragment();
+    public static CompletedTasksFragment newInstance(String param1, String param2) {
+        CompletedTasksFragment fragment = new CompletedTasksFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +66,26 @@ public class StatusFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_status, container, false);
+        View v = inflater.inflate(R.layout.fragment_status, container, false);
+
+        recyclerViewCompleted = v.findViewById(R.id.recyclerViewCompleted);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerViewCompleted.setLayoutManager(layoutManager);
+
+
+        arrCompleted.add(new TaskModel("A", "abc","02:00 PM"));
+        arrCompleted.add(new TaskModel("B", "abc1","05:00 PM"));
+        arrCompleted.add(new TaskModel("C", "abc2","07:00 PM"));
+        arrCompleted.add(new TaskModel("D", "abc3","09:00 AM"));
+        arrCompleted.add(new TaskModel("E", "abc4","12:00 PM"));
+        arrCompleted.add(new TaskModel("F", "abc5","03:00 PM"));
+        arrCompleted.add(new TaskModel("G", "abc6","10:00 AM"));
+        arrCompleted.add(new TaskModel("H", "abc7","08:00 PM"));
+
+        RecyclerPostponedAdapter adapter = new RecyclerPostponedAdapter(arrCompleted);
+        recyclerViewCompleted.setAdapter(adapter);
+
+        return v;
     }
 }

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TimeTableManager">
         <activity
+            android:name=".TaskInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditNameDialogActivity"
             android:exported="false" />
         <activity
@@ -40,7 +43,7 @@
             android:exported="true" />
         <activity
             android:name=".ProfileActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

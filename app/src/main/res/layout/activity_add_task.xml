@@ -11,7 +11,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="50dp"
         android:foregroundGravity="center_horizontal"
         android:gravity="center_horizontal"
         android:hint="@string/task_title"
@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/imageView10">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_task_title"
@@ -109,6 +109,18 @@
         app:layout_constraintEnd_toStartOf="@+id/layout_task_title"
         app:layout_constraintTop_toTopOf="@+id/layout_task_title"
         app:srcCompat="@drawable/title" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="104dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/add_task"
+        app:tint="@color/project_green" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

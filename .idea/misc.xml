@@ -15,16 +15,20 @@
         <entry key="app/src/main/res/font/syne_tactile.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/layout/activity_add_task.xml" value="0.311151123046875" />
         <entry key="app/src/main/res/layout/activity_change_pswd.xml" value="0.3400145701538452" />
-        <entry key="app/src/main/res/layout/activity_edit_email_dialog.xml" value="0.5093215159546264" />
+        <entry key="app/src/main/res/layout/activity_edit_email_dialog.xml" value="0.33791648665775137" />
+        <entry key="app/src/main/res/layout/activity_edit_name_dialog.xml" value="0.18170158187259514" />
         <entry key="app/src/main/res/layout/activity_edit_profile_dialog.xml" value="0.3660537719726562" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.32867431640625006" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19170984455958548" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24951782226562502" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.30009002685546876" />
+        <entry key="app/src/main/res/layout/activity_task_info.xml" value="0.28506156722415765" />
         <entry key="app/src/main/res/layout/dialog_layout.xml" value="0.3047069345482092" />
+        <entry key="app/src/main/res/layout/fragment_pending_tasks.xml" value="0.18170158187259514" />
         <entry key="app/src/main/res/layout/fragment_postponed.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/fragment_status.xml" value="0.1791363830696879" />
         <entry key="app/src/main/res/layout/fragment_tasks.xml" value="0.2625897522103129" />
+        <entry key="app/src/main/res/layout/notification_row.xml" value="0.3507797241210938" />
         <entry key="app/src/main/res/layout/profile_section.xml" value="0.31745904010275133" />
         <entry key="app/src/main/res/layout/register.xml" value="0.32701161702473963" />
         <entry key="app/src/main/res/layout/row.xml" value="0.3114754098360656" />
@@ -36,6 +40,9 @@
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2" />
       </map>
     </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_pending_tasks.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
