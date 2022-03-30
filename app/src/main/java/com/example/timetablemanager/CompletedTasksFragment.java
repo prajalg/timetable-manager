@@ -21,7 +21,7 @@ public class CompletedTasksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_status, container, false);
+        View v = inflater.inflate(R.layout.fragment_completed_tasks, container, false);
 
         recyclerViewCompleted = v.findViewById(R.id.recyclerViewCompleted);
 
@@ -37,8 +37,8 @@ public class CompletedTasksFragment extends Fragment {
         arrCompleted.add(new TaskModel("F", "abc5","03:00 PM"));
         arrCompleted.add(new TaskModel("G", "abc6","10:00 AM"));
         arrCompleted.add(new TaskModel("H", "abc7","08:00 PM"));
+        RecyclerTasksCompletedAdapter adapter = new RecyclerTasksCompletedAdapter(arrCompleted);
 
-        RecyclerPostponedAdapter adapter = new RecyclerPostponedAdapter(arrCompleted);
         recyclerViewCompleted.setAdapter(adapter);
 
         return v;

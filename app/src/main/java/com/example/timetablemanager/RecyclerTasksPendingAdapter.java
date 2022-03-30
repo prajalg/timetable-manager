@@ -36,7 +36,7 @@ public class RecyclerTasksPendingAdapter extends RecyclerView.Adapter<RecyclerTa
         return arrPending.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView task_title, task_description, task_time;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

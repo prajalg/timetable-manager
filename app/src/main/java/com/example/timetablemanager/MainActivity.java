@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     loadFrag(new PostponedFragment(), false);
                 }
                 else{
-                    loadFrag(new CompletedTasksFragment(), false);
+                    loadFrag(new StatusFragment(), false);
                 }
                 return true;
             }

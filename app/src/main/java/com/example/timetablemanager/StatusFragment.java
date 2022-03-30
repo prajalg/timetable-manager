@@ -1,39 +1,39 @@
 package com.example.timetablemanager;
 
 import android.os.Bundle;
-import com.google.android.material.tabs.TabLayout;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AppCompatActivity;
-import android.widget.FrameLayout;
 
+import com.google.android.material.tabs.TabLayout;
 
-public class StatusActivity extends AppCompatActivity {
+public class StatusFragment extends Fragment {
     TabLayout tabLayout;
     FrameLayout frameLayout;
-    Fragment fragment = null;
+    Fragment fragment;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.fragment_status, container, false);
+        tabLayout =v.findViewById(R.id.tabLayout);
+        frameLayout =v.findViewById(R.id.frameLayout);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_status);
-        tabLayout = findViewById(R.id.tabLayout);
-        frameLayout= findViewById(R.id.frameLayout);
-
-        fragment = new CompletedTasksFragment();
-        fragmentManager = getSupportFragmentManager();
+        fragment = new PendingTasksFragment();
+        fragmentManager = getParentFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout, fragment);
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.commit();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                // Fragment fragment = null;
                 switch (tab.getPosition()) {
                     case 0:
                         fragment = new PendingTasksFragment();
@@ -42,10 +42,9 @@ public class StatusActivity extends AppCompatActivity {
                         fragment = new CompletedTasksFragment();
                         break;
                 }
-                FragmentManager fm = getSupportFragmentManager();
+                FragmentManager fm = getParentFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.frameLayout, fragment);
-                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 ft.commit();
             }
 
@@ -60,5 +59,6 @@ public class StatusActivity extends AppCompatActivity {
             }
 
         });
+        return v;
     }
 }
