@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class RecyclerTasksPendingAdapter extends RecyclerView.Adapter<RecyclerTasksPendingAdapter.ViewHolder> {
-    ArrayList<TaskModel> arrCompleted;
-    RecyclerTasksPendingAdapter(ArrayList<TaskModel> arrCompleted){
-        this.arrCompleted = arrCompleted;
+    ArrayList<TaskModel> arrPending;
+    RecyclerTasksPendingAdapter(ArrayList<TaskModel> arrPending){
+        this.arrPending = arrPending;
         // so now we got the arraylist.
     }
     @NonNull
@@ -26,14 +26,14 @@ public class RecyclerTasksPendingAdapter extends RecyclerView.Adapter<RecyclerTa
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-    holder.task_title.setText(arrCompleted.get(position).title);
-    holder.task_description.setText(arrCompleted.get(position).description);
-    holder.task_time.setText(arrCompleted.get(position).time);
+    holder.task_title.setText(arrPending.get(position).title);
+    holder.task_description.setText(arrPending.get(position).description);
+    holder.task_time.setText(arrPending.get(position).time);
     }
 
     @Override
     public int getItemCount() {
-        return arrCompleted.size();
+        return arrPending.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

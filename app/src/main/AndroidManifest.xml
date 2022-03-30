@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TimeTableManager">
         <activity
+            android:name=".StatusActivity"
+            android:exported="false"
+            android:label="@string/title_activity_status"
+            android:theme="@style/Theme.TimeTableManager.NoActionBar" />
+        <activity
             android:name=".TaskInfoActivity"
             android:exported="false" />
         <activity
