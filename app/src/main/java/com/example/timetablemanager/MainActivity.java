@@ -20,6 +20,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,10 +34,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Objects.requireNonNull(getSupportActionBar()).setElevation(0);
         mAuth = FirebaseAuth.getInstance();
         bottom_nav_view = findViewById(R.id.bottom_nav_view);
         add_task_btn = findViewById(R.id.add_task_btn);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         add_task_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,13 +52,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if(id==R.id.tasks){
-                    loadFrag(new TasksFragment(), false);
+                    loadFrag(new TasksFragment());
                 }
                 else if(id==R.id.postponed){
-                    loadFrag(new PostponedFragment(), false);
+                    loadFrag(new PostponedFragment());
                 }
                 else{
-                    loadFrag(new StatusFragment(), false);
+                    loadFrag(new StatusFragment());
                 }
                 return true;
             }
@@ -66,16 +70,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void loadFrag(Fragment fragment, boolean flag){
+    public void loadFrag(Fragment fragment){
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        if(flag) {
-            ft.add(R.id.container, fragment);
-        }
-        else {
             ft.replace(R.id.container, fragment);
-        }
-        ft.commit();
+            ft.commit();
     }
 
     @Override

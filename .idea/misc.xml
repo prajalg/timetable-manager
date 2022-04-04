@@ -20,10 +20,10 @@
         <entry key="app/src/main/res/layout/activity_edit_profile_dialog.xml" value="0.3660537719726562" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.32867431640625006" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19170984455958548" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24951782226562502" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.17036132812500002" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.30009002685546876" />
         <entry key="app/src/main/res/layout/activity_status.xml" value="0.18170158187259514" />
-        <entry key="app/src/main/res/layout/activity_task_info.xml" value="0.28506156722415765" />
+        <entry key="app/src/main/res/layout/activity_task_info.xml" value="0.12197113037109375" />
         <entry key="app/src/main/res/layout/dialog_layout.xml" value="0.3047069345482092" />
         <entry key="app/src/main/res/layout/fragment_completed_tasks.xml" value="0.18170158187259514" />
         <entry key="app/src/main/res/layout/fragment_pending_tasks.xml" value="0.18170158187259514" />

@@ -1,10 +1,12 @@
 package com.example.timetablemanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,8 +15,10 @@ import java.util.ArrayList;
 
 public class RecyclerTaskAdapter extends RecyclerView.Adapter<RecyclerTaskAdapter.ViewHolder> {
     ArrayList<TaskModel> arrTasks;
-    RecyclerTaskAdapter(ArrayList<TaskModel> arrTasks){
+    Context context;
+    RecyclerTaskAdapter(ArrayList<TaskModel> arrTasks, Context context){
         this.arrTasks = arrTasks;
+        this.context = context;
         // so now we got the arraylist.
     }
     @NonNull
@@ -30,6 +34,14 @@ public class RecyclerTaskAdapter extends RecyclerView.Adapter<RecyclerTaskAdapte
         holder.task_description.setText(arrTasks.get(position).description);
         holder.task_time.setText(arrTasks.get(position).time);
         //now we have bind the data to the view holder.
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, TaskInfoActivity.class);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

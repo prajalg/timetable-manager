@@ -83,7 +83,7 @@ public class TasksFragment extends Fragment {
 
         // making object of RecyclerTaskAdapter class:
 
-        RecyclerTaskAdapter adapter = new RecyclerTaskAdapter(arrTasks);
+        RecyclerTaskAdapter adapter = new RecyclerTaskAdapter(arrTasks, getContext());
         recyclerViewTasks.setAdapter(adapter);
         return v;
     }
