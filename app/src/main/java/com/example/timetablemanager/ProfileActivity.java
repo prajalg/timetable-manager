@@ -16,10 +16,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import java.util.Objects;
 
 public class ProfileActivity extends AppCompatActivity {
@@ -30,11 +32,12 @@ public class ProfileActivity extends AppCompatActivity {
     EditText editName, editEmail;
     String name, email, photo;
     Button cancel_name_btn,cancel_email_btn, save_name_btn, save_email_btn;
-    private static final String KEY_NAME = "name";
-    private static final String KEY_EMAIL = "email";
-    private static final String KEY_PHOTO = "photo";
+
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    String uid = mAuth.getCurrentUser().getUid();
+    DocumentReference userRef = db.collection("Users").document(uid);
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
         changePswd = findViewById(R.id.btn_change_pswd);
         display_name = findViewById(R.id.name);
         display_email = findViewById(R.id.email);
+        photo = "";
 
         add_photo_btn = findViewById(R.id.add_photo_btn);
         changePswd.setOnClickListener(new View.OnClickListener() {
@@ -123,13 +127,36 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-    public void saveUser(View v){
-        Map<String, Object> user = new HashMap<>();
-            user.put(KEY_NAME, name);
-            user.put(KEY_EMAIL, email);
-            user.put(KEY_PHOTO, photo);
 
-            db.collection("Users").document().set(user)
+    @Override
+    protected void onStart() {
+        super.onStart();
+        userRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(error!=null){
+                    Toast.makeText(ProfileActivity.this, "", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(value.exists()) {
+                    User user = value.toObject(User.class);
+                    String name = user.getName();
+                    String email = user.getEmail();
+
+                    display_name.setText(name);
+                    display_email.setText(email);
+                } else {
+                    display_name.setText("");
+                    display_email.setText("");
+                }
+
+            }
+        });
+    }
+
+    public void saveUser(View v){
+            User user = new User(name, email, photo);
+            userRef.set(user)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
@@ -144,3 +171,4 @@ public class ProfileActivity extends AppCompatActivity {
                     });
     }
 }
+
