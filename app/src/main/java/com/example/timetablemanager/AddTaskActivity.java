@@ -7,22 +7,29 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 
 public class AddTaskActivity extends AppCompatActivity {
     Button btn_task_time;
+    EditText input_task_title, input_task_des;
     int hour, minute;
     String amPm="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Add a Task");
         btn_task_time = findViewById(R.id.btn_task_time);
+        input_task_title = findViewById(R.id.input_task_title);
+        input_task_des = findViewById(R.id.input_task_des);
         Calendar calendar = Calendar.getInstance();
         int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
         int currentMinute = calendar.get(Calendar.MINUTE);

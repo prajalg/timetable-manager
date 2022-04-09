@@ -7,6 +7,7 @@
     <string name="confirm_pswd">Confirm Password</string>
     <string name="forg_pswd_login">Forgot password?</string>
     <string name="save">SAVE</string>
+    <string name="apply_changes">APPLY</string>
     <string name="submit">Submit</string>
     <string name="input_edit_name">Enter your name</string>
     <string name="input_edit_email">Enter your email id</string>

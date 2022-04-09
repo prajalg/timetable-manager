@@ -20,8 +20,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.Objects;
 
 
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         bottom_nav_view = findViewById(R.id.bottom_nav_view);
         add_task_btn = findViewById(R.id.add_task_btn);
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
         add_task_btn.setOnClickListener(new View.OnClickListener() {
             @Override
