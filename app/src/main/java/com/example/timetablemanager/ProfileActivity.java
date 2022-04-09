@@ -32,8 +32,6 @@ public class ProfileActivity extends AppCompatActivity {
     EditText editName, editEmail;
     String name, email, photo;
     Button cancel_name_btn,cancel_email_btn, save_name_btn, save_email_btn;
-
-
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     String uid = mAuth.getCurrentUser().getUid();
@@ -51,7 +49,6 @@ public class ProfileActivity extends AppCompatActivity {
         display_name = findViewById(R.id.name);
         display_email = findViewById(R.id.email);
         photo = "";
-
         add_photo_btn = findViewById(R.id.add_photo_btn);
         changePswd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
                 cancel_name_btn = dialog.findViewById(R.id.cancel_name_btn);
                 save_name_btn = dialog.findViewById(R.id.save_name_btn);
                 editName = dialog.findViewById(R.id.editName);
+
                 save_name_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -135,14 +133,13 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 if(error!=null){
-                    Toast.makeText(ProfileActivity.this, "", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, "Error: "+error, Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(value.exists()) {
                     User user = value.toObject(User.class);
-                    String name = user.getName();
-                    String email = user.getEmail();
-
+                    name = user.getName();
+                    email = user.getEmail();
                     display_name.setText(name);
                     display_email.setText(email);
                 } else {
@@ -155,6 +152,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void saveUser(View v){
+
             User user = new User(name, email, photo);
             userRef.set(user)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
