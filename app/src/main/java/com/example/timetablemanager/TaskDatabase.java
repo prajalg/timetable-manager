@@ -6,15 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.RoomMasterTable;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 @Database(entities = {Task.class}, version = 1, exportSchema = false)
 public abstract class TaskDatabase extends RoomDatabase {
     private static TaskDatabase instance;
-
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
@@ -34,12 +35,6 @@ public abstract class TaskDatabase extends RoomDatabase {
         public void onOpen(@NonNull SupportSQLiteDatabase db) {
             super.onOpen(db);
             databaseWriteExecutor.execute(()->{
-                TaskDao dao = instance.taskDao();
-                dao.deleteAll();
-                dao.insert(new Task("Title1", "Description1", "Time1"));
-                dao.insert(new Task("Title2", "Description2", "Time2"));
-
-
             });
         }
     };

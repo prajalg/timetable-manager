@@ -1,18 +1,18 @@
 package com.example.timetablemanager;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.app.TimePickerDialog;
-import android.content.Intent;
+
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -20,15 +20,13 @@ import java.util.Objects;
 
 public class AddTaskActivity extends AppCompatActivity {
 
-    public static final String EXTRA_TITLE = "com.example.timetablemanager.EXTRA_TITLE";
-    public static final String EXTRA_DESCRIPTION = "com.example.timetablemanager.EXTRA_DESCRIPTION";
-    public static final String EXTRA_TIME = "com.example.timetablemanager.EXTRA_TIME";
-
     Button btn_task_time, add_task_alarm;
     EditText input_task_title, input_task_des;
-    String input_time;
+    String title, description, time;
+
     int hour, minute;
     String amPm="";
+    TaskViewModel taskViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +37,7 @@ public class AddTaskActivity extends AppCompatActivity {
         add_task_alarm = findViewById(R.id.add_task_alarm);
         input_task_title = findViewById(R.id.input_task_title);
         input_task_des = findViewById(R.id.input_task_des);
+        taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
         Calendar calendar = Calendar.getInstance();
         int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
         int currentMinute = calendar.get(Calendar.MINUTE);
@@ -65,8 +64,8 @@ public class AddTaskActivity extends AppCompatActivity {
                                 }
                             }
                         }
-                        input_time = String.format(Locale.getDefault(), "%02d:%02d"+amPm, hour, minute);
-                        btn_task_time.setText(input_time);
+                        time = String.format(Locale.getDefault(), "%02d:%02d"+amPm, hour, minute);
+                        btn_task_time.setText(time);
 
                     }
                 };
@@ -78,21 +77,31 @@ public class AddTaskActivity extends AppCompatActivity {
         add_task_alarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveTask();
+                title = input_task_title.getText().toString();
+                description = input_task_des.getText().toString();
+                if(TextUtils.isEmpty(title)||TextUtils.isEmpty(description)||TextUtils.isEmpty(time)){
+                    if(TextUtils.isEmpty(title)) {
+                        input_task_title.setError("Title is required!");
+                    }
+                    if(TextUtils.isEmpty(description) && !TextUtils.isEmpty(title) && !TextUtils.isEmpty(time)) {
+                        input_task_des.setText("");
+                        saveTask();
+                    }
+                    if(TextUtils.isEmpty(time)){
+                        Toast.makeText(AddTaskActivity.this, "Set a time for your task!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    saveTask();
+                }
             }
         });
+
     }
     public void saveTask(){
-        String title = input_task_title.getText().toString();
-        String description = input_task_des.getText().toString();
-        String time = input_time;
-        Intent intent = new Intent(AddTaskActivity.this, TasksFragment.class);
-        Bundle bundle = new Bundle();
-        bundle.putString("EXTRA_TITLE",title);
-        bundle.putString("EXTRA_DESCRIPTION",description);
-        bundle.putString("EXTRA_TIME",time);
-        TasksFragment tasksFragment = new TasksFragment();
-        tasksFragment.setArguments(bundle);
-        intent.putExtras(bundle);
+        Task task = new Task(title, description, time);
+        taskViewModel.insert(task);
+        Toast.makeText(AddTaskActivity.this, "Task added", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }

@@ -53,6 +53,9 @@ public class RecyclerTaskAdapter extends RecyclerView.Adapter<RecyclerTaskAdapte
         this.tasks = tasks;
         notifyDataSetChanged();
     }
+    public Task getTaskAt(int position){
+        return tasks.get(position);
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
