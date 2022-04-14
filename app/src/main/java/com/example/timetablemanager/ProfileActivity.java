@@ -66,7 +66,7 @@ public class ProfileActivity extends AppCompatActivity {
                 cancel_name_btn = dialog.findViewById(R.id.cancel_name_btn);
                 save_name_btn = dialog.findViewById(R.id.save_name_btn);
                 editName = dialog.findViewById(R.id.editName);
-
+                editName.setText(name);
                 save_name_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -101,6 +101,7 @@ public class ProfileActivity extends AppCompatActivity {
                 });
                 save_email_btn = dialog.findViewById(R.id.save_email_btn);
                 editEmail = dialog.findViewById(R.id.editEmail);
+                editEmail.setText(email);
                 save_email_btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

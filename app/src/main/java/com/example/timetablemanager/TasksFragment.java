@@ -1,16 +1,24 @@
 package com.example.timetablemanager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,7 +36,6 @@ public class TasksFragment extends Fragment {
     private String mParam2;
 
     RecyclerView recyclerViewTasks;
-    ArrayList<TaskModel> arrTasks = new ArrayList<>();
 
     public TasksFragment() {
         // Required empty public constructor
@@ -60,31 +67,43 @@ public class TasksFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    private TaskViewModel taskViewModel;
+    FloatingActionButton add_task_btn;
+    public static final int ADD_TASK_REQUEST_CODE = 1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_tasks, container, false);
-
+        add_task_btn = v.findViewById(R.id.add_task_btn);
         recyclerViewTasks = v.findViewById(R.id.recyclerViewTasks);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());   //note that we cannot use 'this' as context.
         recyclerViewTasks.setLayoutManager(layoutManager);
-
-        arrTasks.add(new TaskModel("Mechanics", "Do questions on virtual work principle", "07:30 AM"));
-        arrTasks.add(new TaskModel("Physics Lab class", "Join the lab class on zoom", "10:00 AM"));
-        arrTasks.add(new TaskModel("Electronics", "Practice diode, op-amp numerical questions", "12:30 PM"));
-        arrTasks.add(new TaskModel("Mathematics", "Do tutorial sheet 3", "02:00 PM"));
-        arrTasks.add(new TaskModel("Electronics class", "Join the class on zoom", "03:00 PM"));
-        arrTasks.add(new TaskModel("Mathematics class", "Join the class on zoom", "04:00 PM"));
-        arrTasks.add(new TaskModel("Economics & Finance class", "Join the class on zoom", "05:00 PM"));
-        arrTasks.add(new TaskModel("Physics lab report file", "Write experiment 5", "07:30 PM"));
-        arrTasks.add(new TaskModel("Mechanics Tutorial sheet", "Do tutorial sheet on Module 7", "09:30 AM"));
-
-        // making object of RecyclerTaskAdapter class:
-
-        RecyclerTaskAdapter adapter = new RecyclerTaskAdapter(arrTasks, getContext());
+        final RecyclerTaskAdapter adapter = new RecyclerTaskAdapter(getContext());
         recyclerViewTasks.setAdapter(adapter);
+        taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
+        taskViewModel.getAllTasks().observe(getViewLifecycleOwner(), new Observer<List<Task>>() {
+            @Override
+            public void onChanged(List<Task> tasks) {
+                Toast.makeText(getContext(), "onChanged", Toast.LENGTH_SHORT).show();
+                adapter.setTasks(tasks);
+            }
+        });
+        add_task_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), AddTaskActivity.class);
+               startActivity(intent);
+
+            }
+        });
+
+        Bundle data = getArguments();
+        if(data!=null){
+            Task task = new Task(data.getString("EXTRA_TITLE"), data.getString("EXTRA_DESCRIPTION"),data.getString("EXTRA_TIME"));
+            taskViewModel.insert(task);
+        }
+
         return v;
     }
 }

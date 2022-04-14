@@ -12,12 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerTaskAdapter extends RecyclerView.Adapter<RecyclerTaskAdapter.ViewHolder> {
-    ArrayList<TaskModel> arrTasks;
+    private List<Task> tasks = new ArrayList<>();
     Context context;
-    RecyclerTaskAdapter(ArrayList<TaskModel> arrTasks, Context context){
-        this.arrTasks = arrTasks;
+    RecyclerTaskAdapter(Context context){
         this.context = context;
         // so now we got the arraylist.
     }
@@ -30,9 +30,9 @@ public class RecyclerTaskAdapter extends RecyclerView.Adapter<RecyclerTaskAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.task_title.setText(arrTasks.get(position).title);
-        holder.task_description.setText(arrTasks.get(position).description);
-        holder.task_time.setText(arrTasks.get(position).time);
+        holder.task_title.setText(tasks.get(position).getTitle());
+        holder.task_description.setText(tasks.get(position).getDescription());
+        holder.task_time.setText(tasks.get(position).getTime());
         //now we have bind the data to the view holder.
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +46,12 @@ public class RecyclerTaskAdapter extends RecyclerView.Adapter<RecyclerTaskAdapte
 
     @Override
     public int getItemCount() {
-        return arrTasks.size();
+        return tasks.size();
+    }
+
+    public void setTasks(List<Task> tasks){
+        this.tasks = tasks;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -27,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
     BottomNavigationView bottom_nav_view;
-    FloatingActionButton add_task_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,15 +35,6 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setElevation(0);
         mAuth = FirebaseAuth.getInstance();
         bottom_nav_view = findViewById(R.id.bottom_nav_view);
-        add_task_btn = findViewById(R.id.add_task_btn);
-
-
-        add_task_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, AddTaskActivity.class));
-            }
-        });
 
         bottom_nav_view.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -114,6 +105,4 @@ public class MainActivity extends AppCompatActivity {
         }
             return true;
     }
-
-
 }
