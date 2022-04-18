@@ -12,6 +12,11 @@ public class User {
         this.email = email;
         this.photo = photo;
     }
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
 
     public String getName() {
         return name;

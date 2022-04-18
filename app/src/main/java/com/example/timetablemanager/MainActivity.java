@@ -25,7 +25,6 @@ import java.util.Objects;
 
 
 public class MainActivity extends AppCompatActivity {
-
     FirebaseAuth mAuth;
     BottomNavigationView bottom_nav_view;
     @Override

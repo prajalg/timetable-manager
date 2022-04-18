@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class RecyclerTaskAdapter extends RecyclerView.Adapter<RecyclerTaskAdapter.ViewHolder> {
     private List<Task> tasks = new ArrayList<>();
+    private OnItemClickListener listener;
     Context context;
     RecyclerTaskAdapter(Context context){
         this.context = context;
@@ -34,14 +36,6 @@ public class RecyclerTaskAdapter extends RecyclerView.Adapter<RecyclerTaskAdapte
         holder.task_description.setText(tasks.get(position).getDescription());
         holder.task_time.setText(tasks.get(position).getTime());
         //now we have bind the data to the view holder.
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, TaskInfoActivity.class);
-                context.startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -66,7 +60,22 @@ public class RecyclerTaskAdapter extends RecyclerView.Adapter<RecyclerTaskAdapte
             task_title = itemView.findViewById(R.id.task_title);
             task_description = itemView.findViewById(R.id.task_description);
             task_time = itemView.findViewById(R.id.task_time);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAbsoluteAdapterPosition();
+                    if(listener!=null && position!= RecyclerView.NO_POSITION) {
+                        listener.onItemClick(tasks.get(position));
+                    }
+                }
+            });
         }
 
+    }
+    public interface OnItemClickListener{
+        void onItemClick(Task task);
+    }
+    public void setOnClickListener(OnItemClickListener listener){
+        this.listener = listener;
     }
 }

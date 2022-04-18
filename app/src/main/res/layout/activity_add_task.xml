@@ -6,121 +6,130 @@
     android:layout_height="match_parent"
     tools:context=".AddTaskActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_task_title"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:foregroundGravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:hint="@string/task_title"
-        app:boxBackgroundColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_task_title"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:foregroundGravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:hint="@string/task_title"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_task_title"
-            android:layout_width="288dp"
-            android:layout_height="52dp"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_task_title"
+                    android:layout_width="288dp"
+                    android:layout_height="52dp"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layout_task_des"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:foregroundGravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:hint="@string/task_des"
-        app:boxBackgroundColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_task_title">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_task_des"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:foregroundGravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:hint="@string/task_des"
+                app:boxBackgroundColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_task_title">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_task_des"
-            android:layout_width="288dp"
-            android:layout_height="52dp"
-            android:inputType="textMultiLine" />
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_task_des"
+                    android:layout_width="288dp"
+                    android:layout_height="52dp"
+                    android:inputType="textMultiLine" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btn_task_time"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="288dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#EBE9E9"
-        android:foregroundGravity="center_horizontal"
-        android:gravity="center_vertical"
-        android:hint="@string/task_time"
-        android:textColor="@color/ic_launcher_background"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_task_des" />
+            <Button
+                android:id="@+id/btn_task_time"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="288dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#EBE9E9"
+                android:foregroundGravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:hint="@string/task_time"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_task_des" />
 
-    <Button
-        android:id="@+id/add_task_alarm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:foregroundGravity="center_horizontal"
-        android:gravity="center"
-        android:text="@string/add_alarm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_task_time" />
+            <Button
+                android:id="@+id/add_task_alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:foregroundGravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/add_alarm"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_task_time" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_task_time"
-        app:layout_constraintEnd_toStartOf="@+id/btn_task_time"
-        app:layout_constraintTop_toTopOf="@+id/btn_task_time"
-        app:srcCompat="@drawable/clock" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_task_time"
+                app:layout_constraintEnd_toStartOf="@+id/btn_task_time"
+                app:layout_constraintTop_toTopOf="@+id/btn_task_time"
+                app:srcCompat="@drawable/clock"
+                app:tint="@color/project_green" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/layout_task_des"
-        app:layout_constraintEnd_toStartOf="@+id/layout_task_des"
-        app:layout_constraintTop_toTopOf="@+id/layout_task_des"
-        app:layout_constraintVertical_bias="0.533"
-        app:srcCompat="@drawable/logo_edit" />
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/layout_task_des"
+                app:layout_constraintEnd_toStartOf="@+id/layout_task_des"
+                app:layout_constraintTop_toTopOf="@+id/layout_task_des"
+                app:layout_constraintVertical_bias="0.533"
+                app:srcCompat="@drawable/logo_edit"
+                app:tint="@color/project_green" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/layout_task_title"
-        app:layout_constraintEnd_toStartOf="@+id/layout_task_title"
-        app:layout_constraintTop_toTopOf="@+id/layout_task_title"
-        app:srcCompat="@drawable/title" />
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="2dp"
+                app:layout_constraintBottom_toBottomOf="@+id/layout_task_title"
+                app:layout_constraintEnd_toStartOf="@+id/layout_task_title"
+                app:layout_constraintTop_toTopOf="@+id/layout_task_title"
+                app:srcCompat="@drawable/title"
+                app:tint="@color/project_green" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="104dp"
-        android:layout_height="91dp"
-        android:layout_marginTop="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/add_task"
-        app:tint="@color/project_green" />
-
-
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="104dp"
+                android:layout_height="91dp"
+                android:layout_marginTop="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/add_task"
+                app:tint="@color/project_green" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

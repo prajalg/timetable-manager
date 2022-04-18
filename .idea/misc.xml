@@ -13,18 +13,20 @@
         <entry key="app/src/main/res/font/cantora_one.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/font/capriola.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/font/syne_tactile.xml" value="0.12447916666666667" />
-        <entry key="app/src/main/res/layout/activity_add_task.xml" value="0.311151123046875" />
-        <entry key="app/src/main/res/layout/activity_change_pswd.xml" value="0.3400145701538452" />
+        <entry key="app/src/main/res/layout/activity_add_task.xml" value="0.2579185520361991" />
+        <entry key="app/src/main/res/layout/activity_change_pswd.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_edit_email_dialog.xml" value="0.33791648665775137" />
         <entry key="app/src/main/res/layout/activity_edit_name_dialog.xml" value="0.5335417918335327" />
         <entry key="app/src/main/res/layout/activity_edit_profile_dialog.xml" value="0.3660537719726562" />
-        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.32867431640625006" />
+        <entry key="app/src/main/res/layout/activity_edit_task.xml" value="0.31865284974093266" />
+        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.28169014084507044" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19170984455958548" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17036132812500002" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.30009002685546876" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.2693069458007813" />
         <entry key="app/src/main/res/layout/activity_status.xml" value="0.18170158187259514" />
-        <entry key="app/src/main/res/layout/activity_task_info.xml" value="0.12197113037109375" />
+        <entry key="app/src/main/res/layout/activity_task_info.xml" value="0.4386642456054688" />
         <entry key="app/src/main/res/layout/dialog_layout.xml" value="0.3047069345482092" />
+        <entry key="app/src/main/res/layout/edit_task_activity.xml" value="0.15818725951261223" />
         <entry key="app/src/main/res/layout/fragment_completed_tasks.xml" value="0.18170158187259514" />
         <entry key="app/src/main/res/layout/fragment_pending_tasks.xml" value="0.18170158187259514" />
         <entry key="app/src/main/res/layout/fragment_postponed.xml" value="0.1791363830696879" />
@@ -32,13 +34,16 @@
         <entry key="app/src/main/res/layout/fragment_status2.xml" value="0.18170158187259514" />
         <entry key="app/src/main/res/layout/fragment_tasks.xml" value="0.2625897522103129" />
         <entry key="app/src/main/res/layout/notification_row.xml" value="0.3507797241210938" />
-        <entry key="app/src/main/res/layout/profile_section.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/profile_section.xml" value="0.2271186440677966" />
         <entry key="app/src/main/res/layout/register.xml" value="0.32701161702473963" />
         <entry key="app/src/main/res/layout/row.xml" value="0.3114754098360656" />
-        <entry key="app/src/main/res/layout/task_row.xml" value="0.33528747558593747" />
+        <entry key="app/src/main/res/layout/task_row.xml" value="0.8213714599609375" />
         <entry key="app/src/main/res/menu-v26/app_menu.xml" value="0.284698486328125" />
+        <entry key="app/src/main/res/menu/add_task_menu.xml" value="0.34068695433683094" />
         <entry key="app/src/main/res/menu/app_menu.xml" value="0.33746948242187497" />
         <entry key="app/src/main/res/menu/bottom_navigation.xml" value="0.2693069458007813" />
+        <entry key="app/src/main/res/menu/edit_task_menu.xml" value="0.14792646430098333" />
+        <entry key="app/src/main/res/menu/task_info_menu.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2" />
       </map>
